@@ -3,3 +3,9 @@ TRACE: 2021/08/28 13:12:54 main.go:76: Application started
 TRACE: 2021/08/28 13:12:54 main.go:85: Server is ready to handle request %s :9098
 TRACE: 2021/08/28 13:13:14 main.go:64: Server is shutting down  interrupt
 TRACE: 2021/08/28 13:13:15 main.go:93: Server stopped....
+TRACE: 2021/08/28 22:48:55 main.go:28: Loging initialised
+TRACE: 2021/08/28 22:48:55 main.go:77: Application started 
+TRACE: 2021/08/28 22:48:55 main.go:53: Listen Address  :9098
+TRACE: 2021/08/28 22:48:55 main.go:86: Server is ready to handle request %s :9098
+TRACE: 2021/08/28 22:49:15 main.go:65: Server is shutting down  interrupt
+TRACE: 2021/08/28 22:49:15 main.go:94: Server stopped....

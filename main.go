@@ -28,7 +28,6 @@ func init() {
 	log.Trace.Println("Loging initialised")
 	flag.StringVar(&listenAddr, "listen-addr", ":"+util.GetProperty(util.Port), "server listen address")
 	flag.Parse()
-
 }
 
 func processRequestURL(next http.Handler) http.Handler {
@@ -50,6 +49,8 @@ func newWebServer() *http.Server {
 	if err != nil {
 		log.Error.Println(err)
 	}
+
+	log.Trace.Println("Listen Address ", listenAddr)
 	return &http.Server{
 		Addr:         listenAddr,
 		Handler:      handlers.CORS(headers, methods, origins, credentials)(processRequestURL(router)),

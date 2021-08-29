@@ -35,7 +35,7 @@ func (store *MessageDB) Add(messageDetails *model.MessageModel) model.ResponseMo
 	serviceResponse.Message = "Message Saved Successfully"
 
 	insForm, err := db.Prepare("INSERT INTO message(id,user,date,message) VALUES(?,?,?,?)")
-	insForm.Exec(messageDetails.Id, messageDetails.Date, messageDetails.User, messageDetails.Message)
+	insForm.Exec(messageDetails.Id, messageDetails.User, messageDetails.Date, messageDetails.Message)
 	if err != nil {
 		serviceResponse.Status = model.CODE_ERROR_IN_SAVING
 		serviceResponse.Message = model.CODE_ERROR_IN_SAVING
@@ -58,7 +58,7 @@ func (store *MessageDB) ListAll() model.MessageModelArray {
 	var messageArray []model.MessageModel
 	for selDB.Next() {
 		var messageObj model.MessageModel
-		err = selDB.Scan(&messageObj.Id, &messageObj.Date, &messageObj.Message, &messageObj.User)
+		err = selDB.Scan(&messageObj.Id, &messageObj.Date, &messageObj.User, &messageObj.Message)
 		if err != nil {
 			log.Trace.Println("Failed to execute Scan  all request", err.Error())
 		}
